@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.venv
+.venv-repos
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/.eval_tmp
+data/.test_tmp
+data/tmp*
+tests

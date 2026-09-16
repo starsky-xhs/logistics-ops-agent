@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# 本地数据（种子数据由代码生成）
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/.eval_tmp/
+data/.test_tmp/
+data/.demo/
+data/tmp*/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

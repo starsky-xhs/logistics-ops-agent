@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logistics-ops-agent"
+version = "0.1.0"
+description = "物流业务 Agent 服务：订单/运单/发票工具编排，高风险操作强制人工确认"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Yu Xiaodong" }]
+keywords = ["agent", "function-calling", "logistics", "human-in-the-loop", "sqlite"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+]
+dev = [
+    "httpx>=0.27,<1.0",
+    "pytest>=8.0,<9.0",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+logistics-agent = "app.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["tests*"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+exclude = ["data", "docs", ".venv", ".venv-repos"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tests"]

@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PLANNER: mock
+      DB_PATH: /app/data/logistics.db
+      APPROVAL_POLICY: high_only
+      MAX_STEPS: "8"
+      TIME_BUDGET_SECONDS: "20"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
